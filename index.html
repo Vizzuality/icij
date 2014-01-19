@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ICIJ - OFFSHOE LEAKS</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cloudfront-6.icij.org/sites/icij/themes/novusordo/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link href="/sites/icij/themes/novusordo/icons/apple-touch-icon-72x72.png" rel="apple-touch-icon" />
+    <meta property="og:image" content="http://dev.icij.org/sites/icij/themes/novusordo/icons/apple-touch-icon-144x144.png" />
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+    <![endif]-->
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+
+    <!-- MAP -->
+    <div class="map">
+      <div id="map"></div>
+      <div class="aside">
+        <div class="inner-aside">
+          <div class="head">
+            <h2><a href="#/landing">ICIJ</a></h2>
+            <h3>OFFSHORE LEAKS</h3>
+            <p>One of the largest collaborations in<br/>journalism history</p>
+          </div>
+          <div class="content">
+            <ul>
+              <li>
+                <a class="clients" href="#/where-are-the-clients">
+                  Where are the clients?
+                  <span class="info">
+                    <span class="separator"></span>
+                    <p>The Offshore Leaks data reveal the financial holdings of tax haven clients from more than 170 countries and territories.</p>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#/see-stories" class="stories selected">
+                  See the stories
+                  <span class="info">
+                    <span class="separator"></span>
+                    <p>For two years more than 50 media organizations analyzed 2.5 million leaked financial records. The stories triggered official inquiries, resignations and policy changes around the world.</p>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#/search-database">Search the database</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottom-aside"></div>
+      </div>
+      
+
+      <div class="footer">
+        <p>
+          A client (also known as an officer) can be associated with more than one country. Therefore, totaling the number of clients will result in an over count of clients. The total unduplicated client count is 107,188
+          <span class="separator"></span>
+        </p>
+        <span class="logo icij">
+          <a href="http://www.icij.org/" target="_blank"><img src="img/logo/icij.png" alt="ICIJ" title="ICIJ" /></a>
+        </span>
+        <span class="logo public">
+          <a href="http://www.publicintegrity.org/" black="_blank"><img src="img/logo/public_integrity.png" alt="Public Integrity" title="Public Integrity" /></a>
+        </span>
+      </div>
+    </div>
+
+    <div id="background-image">
+      <img src="img/layout/landing_bkg.png" width="800" height="600" />
+    </div>
+
+    <!-- LANDING -->
+    <div class="landing">
+      <div class="inner">
+        <div class="head">
+          <h1>ICIJ</h1>
+          <h2>OFFSHORE<br/>LEAKS</h2>
+        </div>
+        <div class="content">
+          <h3>A massive data leak cracks open the secrets of tax havens</h3>
+          <p>112 journalists in 58 countries investigate who does business offshore</p>
+          <a href="#/explore" id="explore">Explore the map</a>
+        </div>
+        <div class="foot">
+          <span class="logo icij">
+            <a href="http://www.icij.org/" target="_blank"><img src="img/logo/icij_color.jpg" alt="ICIJ" title="ICIJ" /></a>
+          </span>
+          <span class="logo public">
+            <a href="http://www.publicintegrity.org/" black="_blank"><img src="img/logo/public_integrity_color.jpg" alt="Public Integrity" title="Public Integrity" /></a>
+          </span>
+          <p>910 17th Street NW | Suite 700 | Washington, DC 20006 | USA | +1.202.466.1300</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+    <script src="js/vendor/fullscreen.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/app.js"></script>
+
+    <script type="infowindow/html" id="client_infowindow_template">
+      <div class="cartodb-popup">
+        <a href="#close" class="cartodb-popup-close-button close">x</a>
+        <div class="cartodb-popup-content-wrapper">
+          <div class="row">
+            <div class="label">
+              <i class="map icon doc_icon"></i>
+            </div>
+            <div class="info border">
+              <img src="{{logo_1}}" alt="{{media_organization}}" title="{{media_organization}}"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label">
+              <label>FEATURED STORIES</label>
+            </div>
+            <div class="info">
+              {{#story_1}}
+                <p><a href="{{link_1}}">{{story_1}}</a></p>
+              {{/story_1}}
+              {{#story_2}}
+                <p class="margin"><a href="{{link_2}}">{{story_2}}</a></p>
+              {{/story_2}}
+              {{#story_3}}
+                <p class="margin"><a href="{{link_3}}">{{story_3}}</a></p>
+              {{/story_3}}
+            </div>
+          </div>
+          <div class="row no-pad">
+            <div class="label">
+              <label>REPORTED BY</label>
+            </div>
+            <div class="info {{#more_stories}}border{{/more_stories}}">
+              {{#reporters}}
+                <p>{{reporters}}</p>
+              {{/reporters}}
+            </div>
+          </div>
+          {{#more_stories}}
+            <div class="row">
+              <div class="label"></div>
+              <div class="info">
+                <a class="more" href="{{more_stories}}">VIEW ALL STORIES</a>
+              </div>
+            </div>
+          {{/more_stories}}
+        </div>
+        <div class="cartodb-popup-tip-container"></div>
+      </div>
+    </script>
+
+    <div id="cpi_widget"></div>
+    <script type="text/javascript" async="async">
+      //<![CDATA[
+      (function() {document.getElementById('cpi_widget').innerHTML = '<iframe src=\"//d13wgxzawu67ej.cloudfront.net/widgets/syndication/node/14104" width=\"0\" height=\"0\" frameBorder=\"0\" style=\"border: none; background: transparent; width: 0px; height: 0px;\"></iframe>'})();
+      //]]>
+    </script>
+  </body>
+</html>

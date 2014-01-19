@@ -1,0 +1,109 @@
+
+  
+  /**
+   *  Aside styles
+   */
+
+  @import "map-sprite";
+  @import "vars";
+  @import "compass/css3/inline-block";
+
+  .aside {
+    position:absolute;
+    left:30px;
+    top:30px;
+    width:245px;
+    padding-top:3px;
+    background:url('../img/map/aside-top.png') no-repeat 0 0;
+    z-index:30;
+
+    .inner-aside {
+      display:block;
+      padding:0 5px;
+      background:url('../img/map/aside-content.png') repeat-y 0 0;
+    }
+
+    .bottom-aside {
+      display:block;
+      height:4px;
+      background:url('../img/map/aside-bottom.png') no-repeat 0 0;
+    }
+
+    h2 {
+      a {
+        font-size:32px;
+        color:#333B46;
+        font-family:$georgia;
+        text-decoration:none;
+        &:hover { text-decoration:underline }
+      }
+    }
+    h3 { font:bold 27px  $helvetica; color:#19A7CC; line-height:30px }
+    p { font-size:14px; font-family:$georgia }
+
+
+    div.head {
+      padding:28px;
+      p {
+        margin-top:10px;
+        color:#AAAAAA;
+        line-height:16px;
+      }
+    }
+
+    ul {
+      display:block;
+
+      li {
+        display:block;
+        border-top:1px solid #E1E2E4;
+
+        a {
+          display:block;
+          padding:22px 28px;
+          background:white;
+          color:#333C47;
+          text-transform:uppercase;
+          font:bold 13px $helvetica;
+          text-decoration:none;
+        }
+
+        span.info {
+          display:none;
+          text-transform:none;
+          font-family:$georgia;
+          font-weight:normal;
+          color:#E1E2E4;
+          line-height: 17px;
+        }
+
+        span.separator {
+          @include inline-block();
+          margin:13px 0;
+          width:43px;
+          height:2px;
+          background:#FFFFFF;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        a.selected {
+          color:#FFFFFF;
+          background:#333C47;
+          
+          span.info {
+            color:#D6D8DA;
+            display:block;
+          }
+
+          &:hover {
+            text-decoration: none;
+            cursor:default;
+          }
+        }
+      }
+    }
+    
+  }
