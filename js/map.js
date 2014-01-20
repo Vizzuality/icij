@@ -6,8 +6,8 @@
   var Map = cdb.core.View.extend({
 
     options: {
-      zoom:     2,
-      center:   [0,0],
+      zoom:     3,
+      center:   [30,-20],
       viz_url:  'https://icij.cartodb.com/api/v2/viz/bec546fa-61a8-11e3-858d-1bc60dd419cf/viz'
     },
 
@@ -37,8 +37,14 @@
     _onDone: function(vis,layers) {
       var layer = layers[1];
       layer.infowindow.set('offset', [224,0]);
+
+      this.baseLayer = layer.getSubLayer(1);
       
-      this.stories = layer.getSubLayer(2);
+      this.choroplethCircles = layer.getSubLayer(2);
+      this.choroplethCircles.hide();
+
+      this.stories = layer.getSubLayer(3);
+
       this.stories.infowindow.set({
         template: this.options.template
       })
@@ -50,6 +56,12 @@
 
     _toggleStories: function(bool) {
       this.stories[bool ? 'show' : 'hide']();
+      if(!bool){
+        this.baseLayer.setCartoCSS('#countries_heavens_group_geoms{ polygon-fill: #C4C5BD; polygon-opacity: 1; line-color: #e6e8df; line-width: 0.4; line-opacity: 1;}')
+      }else{
+        this.baseLayer.setCartoCSS('#countries_heavens_group_geoms{ polygon-fill: #9b2b20; polygon-opacity: 1; line-color: #6C1E16; line-width: 0.7; line-opacity: 1;}')
+      }
+      this.choroplethCircles[!bool ? 'show' : 'hide']();
     },
 
     _onHeadClick: function(e) {
