@@ -40,7 +40,13 @@
       font-size:12px;
       font-family:$helvetica;
       color:#81878D;
-      z-index:1
+      z-index:1;
+
+      a {
+        color:#666;
+        text-decoration:underline;
+        &:hover { color:#333 }
+      }
     }
 
     span.separator {
