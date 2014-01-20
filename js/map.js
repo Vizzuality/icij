@@ -56,11 +56,6 @@
 
     _toggleStories: function(bool) {
       this.stories[bool ? 'show' : 'hide']();
-      if(!bool){
-        this.baseLayer.setCartoCSS('#countries_heavens_group_geoms{ polygon-fill: #C4C5BD; polygon-opacity: 1; line-color: #e6e8df; line-width: 0.4; line-opacity: 1;}')
-      }else{
-        this.baseLayer.setCartoCSS('#countries_heavens_group_geoms{ polygon-fill: #9b2b20; polygon-opacity: 1; line-color: #6C1E16; line-width: 0.7; line-opacity: 1;}')
-      }
       this.choroplethCircles[!bool ? 'show' : 'hide']();
     },
 
