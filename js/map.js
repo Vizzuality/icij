@@ -35,18 +35,20 @@
     },
 
     _onDone: function(vis,layers) {
-      var layer = layers[1];
-      layer.infowindow.set('offset', [224,0]);
-        
-      this.choroplethCountries = layer.getSubLayer(0);
+      this.layer = layers[1];
+      this.layer.infowindow.set('offset', [224,0]);
 
-      this.choroplethCircles = layer.getSubLayer(1);
+      this.choroplethCountries = this.layer.getSubLayer(0);
+
+      this.choroplethCircles = this.layer.getSubLayer(1);
+      this.choroplethCircles.infowindow.set({
+        template: this.options.officers_template
+      });
       this.choroplethCircles.hide();
-
-      this.stories = layer.getSubLayer(2);
-
+      
+      this.stories = this.layer.getSubLayer(2);
       this.stories.infowindow.set({
-        template: this.options.template
+        template: this.options.stories_template
       })
     },
 
@@ -55,13 +57,22 @@
     },
 
     _toggleStories: function(bool) {
+      // Toggle layers
+      this.choroplethCircles[!bool ? 'show' : 'hide']();
       this.stories[bool ? 'show' : 'hide']();
-      if(bool){
+
+      // Change offset of infowindow depending
+      // which layer we are visualizing
+      this.layer.infowindow.set({
+        offset: bool ? [224,0] : [25,0]
+      });
+
+      // Change CartoCSS
+      if (bool){
         this.choroplethCountries.setCartoCSS('#countries_heavens_officer_and_officer_master_g_1{ polygon-fill: #873200; polygon-opacity: 1; line-color: #4D1C00; line-width: 0.6; line-opacity: 1;}');
       }else{
         this.choroplethCountries.setCartoCSS('#countries_heavens_officer_and_officer_master_g_1{ polygon-fill: #873200; polygon-opacity: 1; line-color: #4D1C00; line-width: 0.6; line-opacity: 1; } #countries_heavens_officer_and_officer_master_g_1[c=null]{polygon-opacity: 0.9; }');
       }
-      this.choroplethCircles[!bool ? 'show' : 'hide']();
     },
 
     _onHeadClick: function(e) {

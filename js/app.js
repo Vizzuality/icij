@@ -17,8 +17,9 @@
       _initViews: function() {
         // Map
         this.map = new Map({
-          el:       this.$('div.map'),
-          template: this.$('#client_infowindow_template').html()
+          el:                 this.$('div.map'),
+          officers_template:  this.$('#officers_infowindow_template').html(),
+          stories_template:   this.$('#client_infowindow_template').html()
         })
         .bind("onHeadClick", function(){
           this._toggleLanding();
