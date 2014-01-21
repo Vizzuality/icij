@@ -6,7 +6,7 @@
   var Map = cdb.core.View.extend({
 
     options: {
-      zoom:     3,
+      zoom:     2,
       center:   [30,-20],
       viz_url:  'https://icij.cartodb.com/api/v2/viz/bec546fa-61a8-11e3-858d-1bc60dd419cf/viz'
     },
