@@ -57,9 +57,9 @@
     _toggleStories: function(bool) {
       this.stories[bool ? 'show' : 'hide']();
       if(bool){
-        this.choroplethCountries.setCartoCSS('#countries_heavens_officer_and_officer_master_g_1{ polygon-fill: #7C2E00; polygon-opacity: 1; line-color: #4D1C00; line-width: 0.6; line-opacity: 1;}');
+        this.choroplethCountries.setCartoCSS('#countries_heavens_officer_and_officer_master_g_1{ polygon-fill: #873200; polygon-opacity: 1; line-color: #4D1C00; line-width: 0.6; line-opacity: 1;}');
       }else{
-        this.choroplethCountries.setCartoCSS('#countries_heavens_officer_and_officer_master_g_1{ polygon-fill: #7C2E00; polygon-opacity: 1; line-color: #4D1C00; line-width: 0.6; line-opacity: 1; } #countries_heavens_officer_and_officer_master_g_1[c=null]{polygon-opacity: 0.9; }');
+        this.choroplethCountries.setCartoCSS('#countries_heavens_officer_and_officer_master_g_1{ polygon-fill: #873200; polygon-opacity: 1; line-color: #4D1C00; line-width: 0.6; line-opacity: 1; } #countries_heavens_officer_and_officer_master_g_1[c=null]{polygon-opacity: 0.9; }');
       }
       this.choroplethCircles[!bool ? 'show' : 'hide']();
     },
