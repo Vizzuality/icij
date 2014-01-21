@@ -61,10 +61,12 @@
       this.choroplethCircles[!bool ? 'show' : 'hide']();
       this.stories[bool ? 'show' : 'hide']();
 
-      // Change offset of infowindow depending
+      // Change offset and visibility of
+      // the infowindow depending
       // which layer we are visualizing
       this.layer.infowindow.set({
-        offset: bool ? [224,0] : [25,0]
+        offset: bool ? [224,0] : [25,0],
+        visibility: false
       });
 
       // Change CartoCSS
