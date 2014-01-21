@@ -6,7 +6,7 @@
   var Map = cdb.core.View.extend({
 
     options: {
-      zoom:     3,
+      zoom:     2,
       center:   [30,-20],
       viz_url:  'https://icij.cartodb.com/api/v2/viz/bec546fa-61a8-11e3-858d-1bc60dd419cf/viz'
     },
@@ -37,13 +37,13 @@
     _onDone: function(vis,layers) {
       var layer = layers[1];
       layer.infowindow.set('offset', [224,0]);
+        
+      this.choroplethCountries = layer.getSubLayer(0);
 
-      this.baseLayer = layer.getSubLayer(1);
-      
-      this.choroplethCircles = layer.getSubLayer(2);
+      this.choroplethCircles = layer.getSubLayer(1);
       this.choroplethCircles.hide();
 
-      this.stories = layer.getSubLayer(3);
+      this.stories = layer.getSubLayer(2);
 
       this.stories.infowindow.set({
         template: this.options.template
@@ -56,6 +56,11 @@
 
     _toggleStories: function(bool) {
       this.stories[bool ? 'show' : 'hide']();
+      if(bool){
+        this.choroplethCountries.setCartoCSS('#countries_heavens_officer_and_officer_master_g_1{ polygon-fill: #7C2E00; polygon-opacity: 1; line-color: #4D1C00; line-width: 0.6; line-opacity: 1;}');
+      }else{
+        this.choroplethCountries.setCartoCSS('#countries_heavens_officer_and_officer_master_g_1{ polygon-fill: #7C2E00; polygon-opacity: 1; line-color: #4D1C00; line-width: 0.6; line-opacity: 1; } #countries_heavens_officer_and_officer_master_g_1[c=null]{polygon-opacity: 0.9; }');
+      }
       this.choroplethCircles[!bool ? 'show' : 'hide']();
     },
 
