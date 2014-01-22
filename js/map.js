@@ -104,3 +104,55 @@
     }
 
   });
+
+
+  cdb.geo.ui.Infowindow = cdb.geo.ui.Infowindow.extend({
+
+    render: function() {
+
+      if(this.template) {
+
+        // Clone fields and template name
+        var fields = _.map(this.model.attributes.content.fields, function(field){
+          return _.clone(field);
+        });
+
+        var data = this.model.get('content') ? this.model.get('content').data : {};
+        fields = this._fieldsToString(fields, "");
+
+        // Join plan fields values with content to work with
+        // custom infowindows and CartoDB infowindows.
+        var values = {};
+        _.each(fields, function(pair) {
+          values[pair.title] = pair.value;
+        })
+
+        var obj = _.extend({
+            content: {
+              fields: fields,
+              data: data
+            }
+          },values);
+
+        this.$el.html(this.template(obj));
+
+        // If the infowindow is loading, show spin
+        this._checkLoading();
+      }
+
+      return this;
+    },
+
+    _sanitizeField: function(attr, template_name, pos) {
+      if (_.isNumber(attr.value)) {
+        attr.value = this._numberWithCommas(attr.value);
+      }
+
+      return attr;
+    },
+
+    _numberWithCommas: function(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+  });
