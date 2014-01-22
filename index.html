@@ -108,10 +108,9 @@
         <a href="#close" class="cartodb-popup-close-button close">x</a>
         <div class="cartodb-popup-content-wrapper">
           <div class="cartodb-popup-content">
-            <h4>COUNTRY</h4>
-            <p>{{{country_name}}}</p>
+            <p class="strong">{{country_name}}</p>
             <h4>NUMBER OF CLIENTS</h4>
-            <p>{{{ count_of_officers_rounded }}}</p>
+            <p>{{count_of_officers_rounded}}</p>
           </div>
         </div>
         <div class="cartodb-popup-tip-container"></div>
@@ -131,9 +130,11 @@
             </div>
           </div>
           <div class="row">
-            <div class="label"></div>
+            <div class="label">
+              <label>COUNTRY</label>
+            </div>
             <div class="info">
-              <p><strong>{{country}}</strong></p>
+              <p>{{country}}</p>
             </div>
           </div>
           <div class="row no-pad">
