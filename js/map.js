@@ -12,6 +12,7 @@
     },
 
     events: {
+      'click .triggered':               '_onClickTriggered',
       'click h2 a':                     '_onHeadClick',
       'click div.aside li > a.option':  '_onClick'
     },
@@ -77,17 +78,20 @@
       }
     },
 
+    _onClickTriggered: function() {
+      window.location.href = 'http://www.icij.org/offshore'
+    },
+
     _onHeadClick: function(e) {
       if (e) e.preventDefault();
       this.trigger('onHeadClick', this);
     },
 
     _onClick: function(e) {
-      var $a = $(e.target);
-      e.stopPropagation();
+      var $a = $(e.target).closest('a');
+      e.preventDefault();
       
-      if ($a.find('span.info').length > 0) {
-        e.preventDefault();
+      if (!$a.hasClass('selected') && $a.find('span.info').length > 0) {
         
         // Select correct item
         if (!$a.hasClass('selected'))

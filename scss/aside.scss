@@ -81,7 +81,7 @@
         display:block;
         border-top:1px solid #E1E2E4;
 
-        a.option {
+        & > a {
           display:block;
           padding:22px 28px;
           background:white;
@@ -89,6 +89,12 @@
           text-transform:uppercase;
           font:bold 13px $helvetica;
           text-decoration:none;
+        }
+
+        span.triggered {
+          text-decoration: underline;
+          cursor:pointer;
+          &:hover { color:#E0E0E0 }
         }
 
         span.info {
