@@ -4,9 +4,11 @@
    *  Aside styles
    */
 
+  @import "compass/css3/inline-block";
+  @import "compass/css3/images";
+  @import "compass/css3/border-radius";
   @import "map-sprite";
   @import "vars";
-  @import "compass/css3/inline-block";
 
   .aside {
     position:absolute;
@@ -49,6 +51,27 @@
         color:#AAAAAA;
         line-height:16px;
       }
+      div.social {
+        display:block;
+        margin-top:15px;
+
+        a {
+          @include inline-block();
+          width:26px;
+          height:26px;
+          @include border-radius(2px);
+          text-indent:-9999px;
+          font-size:0;
+          line-height:0;
+
+          &.twitter {
+            @include background(sprite($map-sprites, twitter, $offset-x:6px, $offset-y:6px) no-repeat #3D8FCA);
+          }
+          &.facebook {
+            @include background(sprite($map-sprites, facebook, $offset-x:6px, $offset-y:6px) no-repeat #3B5998);
+          }
+        }
+      }
     }
 
     ul {
@@ -58,7 +81,7 @@
         display:block;
         border-top:1px solid #E1E2E4;
 
-        a {
+        a.option {
           display:block;
           padding:22px 28px;
           background:white;
@@ -89,7 +112,7 @@
           text-decoration: underline;
         }
 
-        a.selected {
+        a.option.selected {
           color:#FFFFFF;
           background:#333C47;
           

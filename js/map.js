@@ -12,8 +12,8 @@
     },
 
     events: {
-      'click h2 a':           '_onHeadClick',
-      'click div.aside li a': '_onClick'
+      'click h2 a':                     '_onHeadClick',
+      'click div.aside li > a.option':  '_onClick'
     },
 
     initialize: function() {
@@ -99,7 +99,7 @@
     },
 
     _openItem: function($a) {
-      this.$('a').removeClass('selected');
+      this.$('a.option').removeClass('selected');
       $a.addClass('selected');
     }
 

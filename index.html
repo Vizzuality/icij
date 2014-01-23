@@ -5,8 +5,23 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="http://cloudfront-6.icij.org/sites/icij/themes/novusordo/favicon.ico" type="image/vnd.microsoft.icon" />
-    <link href="/sites/icij/themes/novusordo/icons/apple-touch-icon-72x72.png" rel="apple-touch-icon" />
-    <meta property="og:image" content="http://dev.icij.org/sites/icij/themes/novusordo/icons/apple-touch-icon-144x144.png" />
+    <meta name="description" content="For two years more than 50 media organizations analyzed 2.5 million leaked financial records. The stories triggered official inquiries, resignations and policy changes around the world.">
+    <meta name="keywords" content="icij, offshore, leaks, CartoDB, maps, journalism, newspaper, investigative journalism, investigation, exposé, reporters, news media, news">
+    <meta name="author" content="ICIJ">
+    <meta name="DC.title" content="ICIJ - OFFSHORE LEAKS">
+    <meta property="og:title" content="ICIJ - OFFSHORE LEAKS"/>
+    <meta property="og:description" content="For two years more than 50 media organizations analyzed 2.5 million leaked financial records. The stories triggered official inquiries, resignations and policy changes around the world."/> 
+    <meta property="og:type" content="Visualization"/>
+    <meta property="og:url" content="http://offshoreleaksmap.icij.org/" />
+    <meta property="og:image" content="http://offshoreleaksmap.icij.org/img/layout/thumbnail.png"/>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@icijorg">
+    <meta name="twitter:creator" content="@icijorg">
+    <meta name="twitter:title" content="ICIJ - OFFSHORE LEAKS">
+    <meta name="twitter:description" content="For two years more than 50 media organizations analyzed 2.5 million leaked financial records. The stories triggered official inquiries, resignations and policy changes around the world.">
+    <meta name="twitter:image:src" content="http://offshoreleaksmap.icij.org/img/layout/thumbnail.png">
+
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
@@ -24,11 +39,15 @@
             <h2><a href="#/landing">ICIJ</a></h2>
             <h3>OFFSHORE LEAKS</h3>
             <p>One of the largest collaborations in<br/>journalism history</p>
+            <div class="social">
+              <a href="https://twitter.com/share?url=http%3A%2F%2Foffshoreleaksmap.icij.org&text=ICIJ%20-%20OFFSHORE%20LEAKS:" class="twitter">Twitter</a>
+              <a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Foffshoreleaksmap.icij.org&text=ICIJ%20-%20OFFSHORE%20LEAKS:" class="facebook">Facebook</a>
+            </div>
           </div>
           <div class="content">
             <ul>
               <li>
-                <a href="#/see-stories" class="stories selected">
+                <a href="#/see-stories" class="stories option selected">
                   See the stories
                   <span class="info">
                     <span class="separator"></span>
@@ -37,7 +56,7 @@
                 </a>
               </li>
               <li>
-                <a class="clients" href="#/where-are-the-clients">
+                <a href="#/where-are-the-clients" class="clients option">
                   Where are the clients?
                   <span class="info">
                     <span class="separator"></span>
@@ -46,7 +65,7 @@
                 </a>
               </li>
               <li>
-                <a href="http://offshoreleaks.icij.org/" target="_blank">Search the database</a>
+                <a href="http://offshoreleaks.icij.org/" class="option" target="_blank">Search the database</a>
               </li>
             </ul>
           </div>

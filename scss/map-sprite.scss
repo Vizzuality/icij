@@ -10,11 +10,15 @@ $map-sprite-base-class: ".map-sprite" !default;
 $map-sprite-dimensions: false !default;
 
 $map-sprites: sprite-map("map/*.png",
-  $position:         0%,
-  $spacing:          0,
-  $repeat:           no-repeat,
-  $readonly-spacing: 0
+  $position:              0%,
+  $spacing:               0,
+  $repeat:                no-repeat,
+  $readonly-spacing:      0,
+  $map-facebook-spacing:  15px,
+  $map-twitter-spacing:   15px
 );
+
+
  
 // All sprites should extend this class
 // The map-sprite mixin will do so for you.
