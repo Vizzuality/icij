@@ -36,6 +36,9 @@
     },
 
     _onDone: function(vis,layers) {
+      this.map = vis.getNativeMap();
+      this.map.attributionControl.removeAttribution("CartoDB <a href='http://cartodb.com/attributions' target='_blank'>attribution</a>");
+
       this.layer = layers[1];
       this.layer.infowindow.set('offset', [224,0]);
 
